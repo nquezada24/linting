@@ -15,28 +15,38 @@ app.get('/', (req, res) => {
   res.render('pages/index', { 'title': title });
 });
 
-app.get('/about', (req, res) => {
-  var title = "About Page";
-  res.render('pages/about', { 'title': title });
+app.get('/Drums', (req, res) => {
+  var title = "Drum Corps Page";
+  res.render('pages/Drums', { 'title': title });
+});
+
+app.get('/Plants', (req, res) => {
+  var title = "Plant catalog";
+  res.render('pages/Plants', { 'title': title });
+});
+
+app.get('/Swim', (req, res) => {
+  var title = "Competiative Swimming";
+  res.render('pages/Swim', { 'title': title });
 });
 
 //users index is our list page
 app.get('/users', function(req, res) {
-	var title = 'Users Page';
-	res.render('users/index', {
-    	title: title,
-    	users: data
-	});
+  var title = 'Users Page';
+  res.render('users/index', {
+    title: title,
+    users: data
+  });
 });
 
 //add user/view route - we are cheating by using the array index - 1
 app.get('/users/view/:id', function(req, res) {
- var title = 'User Page';
- var id = req.params.id;
- res.render('users/view', {
-     title: title,
-     user: data[--id]
- });
+  var title = 'User Page';
+  var id = req.params.id;
+  res.render('users/view', {
+    title: title,
+    user: data[--id]
+  });
 });
 
 app.listen(port, () => {
